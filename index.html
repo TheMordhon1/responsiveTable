@@ -5,28 +5,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <title>Flexbox</title>
+  <title>Sistem Informasi Akuntansi</title>
 </head>
 
 <body>
   <nav id="toggle">
-    <div class="logo">Logo</div>
+    <div class="logo">SIA</div>
     <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="">About</a></li>
-      <li><a href="">Service</a></li>
-      <li><a href="">Contact</a></li>
-      <li><a href="" class="btn-join">Join</a></li>
+      <li class="active"><a href="">Transaksi</a></li>
+      <li><a href="akun.html">Akun</a></li>
+      <li><a href="laporan.html">Laporan</a></li>
+      <!-- <li><a href="">Contact</a></li>
+      <li><a href="" class="btn-join">Join</a></li> -->
     </ul>
     <div class="icon" onclick="toggle();"></div>
   </nav>
-  <main>Content</main>
+  <main>
+    <h2 class="title">Table Transaksi</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Tanggal</th>
+          <th>Nama Transaksi</th>
+          <th>No Akun Debit</th>
+          <th>No Akun Kredit</th>
+          <th>Saldo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>02-04-2020</td>
+          <td>Modal Awal</td>
+          <td>11001</td>
+          <td>11001</td>
+          <td>1,000,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
 
   <!-- Script -->
   <script>
     function toggle() {
       var btn = document.getElementById("toggle");
-      btn.classList.toggle("active");
+      btn.classList.toggle("collapse");
     }
   </script>
 </body>
