@@ -15,10 +15,6 @@ nav {
   background-color: #131420;
   color: #fff;
   padding: 1em 10em;
-  position: fixed;
-  width: 100%;
-  z-index: 10000;
-  top: 0;
 }
 
 nav .logo {
@@ -99,13 +95,14 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
-  padding: 0 10em;
+  padding: 4em 10em;
 }
 
 .title {
   margin-bottom: 30px;
 }
+
+
 
 table {
   width: 100%;
@@ -204,8 +201,9 @@ th {
   /* Main Area */
   /* Force table to not be like tables anymore */
   main {
-    padding: 0 2em;
+    padding: 4em 2em;
   }
+
 
   table,
   thead,
@@ -219,9 +217,7 @@ th {
 
   /* Hide table headers (but not display: none;, for accessibility) */
   thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+    display: none;
   }
 
   tr {
