@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Flexbox</title>
+</head>
+
+<body>
+  <nav id="toggle">
+    <div class="logo">Logo</div>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li><a href="">About</a></li>
+      <li><a href="">Service</a></li>
+      <li><a href="">Contact</a></li>
+      <li><a href="" class="btn-join">Join</a></li>
+    </ul>
+    <div class="icon" onclick="toggle();"></div>
+  </nav>
+  <main>Content</main>
+
+  <!-- Script -->
+  <script>
+    function toggle() {
+      var btn = document.getElementById("toggle");
+      btn.classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>

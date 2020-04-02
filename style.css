@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  height: 200vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #131420;
+  color: #fff;
+  padding: 1em 10em;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: 700;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 2;
+  margin-right: 2em;
+}
+
+nav .btn-join {
+  padding: 10px 28px;
+  background-color: aqua;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #131420;
+}
+
+nav ul li {
+  margin-left: 2em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* Icon Menu */
+nav .icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: none;
+}
+
+nav .icon::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 7px;
+}
+
+nav .icon::after {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  bottom: 7px;
+}
+
+@media (max-width:1200px) and (min-width:1030px) {
+  nav {
+    padding: 1em 5em;
+  }
+}
+
+@media (max-width:1030px) and (min-width:300px) {
+  nav {
+    padding: 1em 2em;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav .icon {
+    display: block;
+  }
+
+  .active .icon::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .active .icon::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .active ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: #131420;
+    top: 62px;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .active ul li {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .active ul li:hover {
+    background: rgb(0, 255, 255, .1);
+    width: 100%;
+  }
+
+  .active ul li a {
+    padding: 1em;
+    display: block;
+  }
+}
