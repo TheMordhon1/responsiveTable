@@ -19,6 +19,7 @@ nav {
   position: fixed;
   width: 100%;
   z-index: 10000;
+  top: 0;
 }
 
 nav .logo {
@@ -54,8 +55,16 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: rgba(255, 255, 255, .6);
   font-size: 18px;
+}
+
+nav ul li a:hover {
+  color: rgba(255, 255, 255, .8);
+}
+
+.active a {
+  color: rgba(255, 255, 255, 1);
 }
 
 /* Icon Menu */
@@ -67,7 +76,7 @@ nav .icon {
 }
 
 nav .icon::before {
-  content: '';
+  content: "";
   width: 30px;
   height: 2px;
   background: #fff;
@@ -76,7 +85,7 @@ nav .icon::before {
 }
 
 nav .icon::after {
-  content: '';
+  content: "";
   width: 30px;
   height: 2px;
   background: #fff;
@@ -84,13 +93,115 @@ nav .icon::after {
   bottom: 7px;
 }
 
-@media (max-width:1200px) and (min-width:1030px) {
+/* Main-Area */
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+main {
+  margin-top: 20vh;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td:nth-child(1) {
+  text-align: center;
+}
+
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: "First Name";
+  }
+
+  td:nth-of-type(2):before {
+    content: "Last Name";
+  }
+
+  td:nth-of-type(3):before {
+    content: "Job Title";
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1030px) {
   nav {
     padding: 1em 5em;
   }
 }
 
-@media (max-width:1030px) and (min-width:300px) {
+@media (max-width: 1030px) and (min-width: 300px) {
   nav {
     padding: 1em 2em;
   }
@@ -103,19 +214,19 @@ nav .icon::after {
     display: block;
   }
 
-  .active .icon::before {
+  .collapse .icon::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
   }
 
-  .active .icon::after {
+  .collapse .icon::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 
-  .active ul {
+  .collapse ul {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -126,18 +237,26 @@ nav .icon::after {
     width: 100%;
   }
 
-  .active ul li {
+  .collapse ul li {
     margin-left: 0;
     width: 100%;
   }
 
-  .active ul li:hover {
-    background: rgb(0, 255, 255, .1);
+  .collapse ul li:hover {
+    background: rgb(0, 255, 255, 0.1);
     width: 100%;
   }
 
-  .active ul li a {
+  .collapse ul li a {
     padding: 1em;
     display: block;
+  }
+
+  .collapse .btn-join {
+    border-radius: 0;
+  }
+
+  .collapse>body>main {
+    margin-top: 40vh;
   }
 }
