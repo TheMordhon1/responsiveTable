@@ -1,2 +1,2 @@
 # web-template
-ini buat yang butuh template responsive navbar silahkan digunakan
+ini buat yang butuh template responsive silahkan digunakan
