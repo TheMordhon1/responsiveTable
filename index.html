@@ -1,60 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sistem Informasi Akuntansi</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Sistem Informasi Akuntansi</title>
-</head>
+  <body>
+    <nav id="toggle">
+      <div class="logo">SIA</div>
 
-<body>
-  <nav id="toggle">
-    <div class="logo">SIA</div>
-    <ul>
-      <li class="active"><a href="">Transaksi</a></li>
-      <li><a href="akun.html">Akun</a></li>
-      <li><a href="laporan.html">Laporan</a></li>
-      <!-- <li><a href="">Contact</a></li>
-      <li><a href="" class="btn-join">Join</a></li> -->
-    </ul>
-    <div class="icon" onclick="toggle();"></div>
-  </nav>
-  <main>
-    <div class="table">
-      <h2 class="title">Table Transaksi</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>Nama Transaksi</th>
-            <th>No Akun Debit</th>
-            <th>No Akun Kredit</th>
-            <th>Saldo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>02-04-2020</td>
-            <td>Modal Awal</td>
-            <td>11001</td>
-            <td>11001</td>
-            <td>1,000,000</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
+      <div class="link-wrapper active">
+        <div class="backdrop"></div>
+        <ul class="links">
+          <li class=""><a href="">Transaksi</a></li>
+          <li><a href="akun.html">Akun</a></li>
+          <li><a href="laporan.html">Laporan</a></li>
+        </ul>
+        <div class="icon"></div>
+      </div>
+    </nav>
+    <main>
+      <div class="table">
+        <h2 class="title">Table Transaksi</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Tanggal</th>
+              <th>Nama Transaksi</th>
+              <th>No Akun Debit</th>
+              <th>No Akun Kredit</th>
+              <th>Saldo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>02-04-2020</td>
+              <td>Modal Awal</td>
+              <td>11001</td>
+              <td>11001</td>
+              <td>1,000,000</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>02-04-2020</td>
+              <td>Perlengkapan</td>
+              <td>31001</td>
+              <td>31001</td>
+              <td>500,000</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>02-04-2020</td>
+              <td>Perlengkapan</td>
+              <td>31001</td>
+              <td>31001</td>
+              <td>500,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
 
-  <!-- Script -->
-  <script>
-    function toggle() {
-      var btn = document.getElementById("toggle");
-      btn.classList.toggle("collapse");
-    }
-  </script>
-</body>
+    <!-- Script -->
+    <script>
 
+      const toggleIcon = document.getElementById("toggle");
+      const linkWrapper = document.querySelector(".link-wrapper");
+      const backdrop = document.querySelector(".backdrop");
+
+      toggleIcon.addEventListener("click", () => {
+        linkWrapper.classList.toggle("collapse");
+      });
+      
+    </script>
+  </body>
 </html>
