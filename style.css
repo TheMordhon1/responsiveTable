@@ -25,7 +25,7 @@ nav .logo {
   align-items: center;
 }
 
-nav ul {
+nav .links {
   list-style: none;
   display: flex;
   align-items: center;
@@ -33,32 +33,37 @@ nav ul {
   flex: 2;
 }
 
-nav .btn-join {
-  padding: 10px 28px;
-  background-color: aqua;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #131420;
-}
-
-nav ul li {
+nav .links li {
   margin-left: 2em;
 }
 
-nav ul li a {
+nav .links li a {
   text-decoration: none;
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 18px;
 }
 
-nav ul li a:hover {
-  color: rgba(255, 255, 255, .8);
+nav .links li a:hover {
+  color: rgba(255, 255, 255, 1);
 }
 
-.active a {
-  color: rgba(255, 255, 255, 1);
+/* Backdrop */
+nav .backdrop {
+  display: none;
+  animation: 0.4s ease-in-out fadeIn forwards;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  to {
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 
 /* Icon Menu */
@@ -67,6 +72,8 @@ nav .icon {
   height: 30px;
   position: relative;
   display: none;
+  z-index: 3;
+  cursor: pointer;
 }
 
 nav .icon::before {
@@ -88,21 +95,17 @@ nav .icon::after {
 }
 
 /* Main-Area */
-/* 
-Generic Styling, for Desktops/Laptops 
-*/
+
 main {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 4em 10em;
+  padding: 6em 10em;
 }
 
 .title {
   margin-bottom: 30px;
 }
-
-
 
 table {
   width: 100%;
@@ -113,7 +116,6 @@ th,
 td:nth-child(1) {
   text-align: center;
 }
-
 
 /* Zebra striping */
 tr:nth-of-type(odd) {
@@ -132,14 +134,13 @@ th {
   border: 1px solid #ccc;
 }
 
-
 @media (max-width: 1200px) and (min-width: 1030px) {
   nav {
     padding: 1em 5em;
   }
 
   main {
-    padding: 0 5em;
+    padding: 6em 5em;
   }
 }
 
@@ -148,12 +149,37 @@ th {
     padding: 1em 2em;
   }
 
-  nav ul {
-    display: none;
-  }
-
   nav .icon {
     display: block;
+  }
+
+  nav .links {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 90%;
+    right: -90%;
+    background: #131420;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    transition: 0.3s ease-in-out;
+  }
+
+  nav .links li {
+    margin-bottom: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    position: relative;
+  }
+
+  nav .links li a {
+    font-size: 1.5rem;
+    position: absolute;
+    left: -3em;
   }
 
   .collapse .icon::before {
@@ -168,40 +194,18 @@ th {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 
-  .collapse ul {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    background: #131420;
-    top: 62px;
+  .collapse .links {
     right: 0;
-    left: 0;
-    width: 100%;
   }
 
-  .collapse ul li {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .collapse ul li:hover {
-    background: rgb(0, 255, 255, 0.1);
-    width: 100%;
-  }
-
-  .collapse ul li a {
-    padding: 1em;
+  .collapse .backdrop {
     display: block;
   }
 
-  .collapse .btn-join {
-    border-radius: 0;
-  }
-
-  /* Main Area */
+/* main */
 
   main {
-    padding: 14em 2em;
+    padding: 2em;
   }
 
   /* Force table to not be like tables anymore */
@@ -279,5 +283,4 @@ Label the data
     font-weight: bold;
     content: "Saldo";
   }
-
 }
